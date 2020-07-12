@@ -5,10 +5,36 @@ public class Tank : MonoBehaviour
 {
     [Header("Game stuff")] public bool HumanPlayer = true;
 
-    public bool ProceduralAnimal = false;
-    public bool AIAnimal = false; // Not implemented yet 
+
+    public GameObject[] TankWheels;
+    public GameObject[] FrontTankWheels;
+    public GameObject TankLift;
+
+    public void RotateWheels(float spin)
+    {
+        foreach (var wheel in TankWheels)
+            wheel.transform.Rotate(spin, 0, 0);
+    }
+    
+    public void SetFrontWheelsYPos(float yPos)
+    {
+        foreach (var wheel in FrontTankWheels)
+        {
+//            Quaternion originalRot = wheel.transform.rotation;    
+//            wheel.transform.rotation= originalRot * Quaternion.AngleAxis(yPos, Vector3.up);
+//            var r = wheel.transform.rotation.eulerAngles;
+//            wheel.transform.rotation = Quaternion.Euler(r.x, yPos, r.z);
+
+
+        }
+
+        
+    }
+
+
+
     public float Speed;
-    public float Radius=1.6f; 
+    public float Radius = 1.6f;
     public float RotateSpeed;
     public float BulletSpeed;
     public float BulletOffset;
@@ -41,14 +67,14 @@ public class Tank : MonoBehaviour
     public int KillCount => killCount;
     public int DeathCount => deathCount;
 
-    
+
     void OnDrawGizmosSelected()
     {
         // Draw a yellow sphere at the transform's position
         Gizmos.color = new Color(1, 0, 0, 0.2f);
         Gizmos.DrawSphere(transform.position, Radius);
     }
-    
+
     public Vector3 StartPosition
     {
         set { startPosition = value; }
@@ -77,11 +103,11 @@ public class Tank : MonoBehaviour
 
     void Update()
     {
-        if (HumanPlayer)
-        {
-            var actionsOut = Heuristic();
-            OnActionReceived(actionsOut);
-        }
+        var actionsOut = Heuristic();
+        OnActionReceived(actionsOut);
+        RotateWheels(-1.0f * (actionsOut[0] - 1));
+        SetFrontWheelsYPos(yPos: 45 * (actionsOut[1]-1));
+
     }
 
 
