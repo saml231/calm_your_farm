@@ -23,12 +23,17 @@ public class Bullet : MonoBehaviour
             var damageHandler = collision.gameObject.GetComponent<Animal_TakeDamage>();
             if (damageHandler != null)
             {
+                collision.gameObject.GetComponent<AnimalHandler>().SleepingAnimal
+                    .AddComponent<PickupItem>();
                 damageHandler.ProcessDamage(damage: 10);
+
             }
 
             var chargerHandler = collision.gameObject.GetComponent<ChargerHandler>();
             if (chargerHandler != null)
             {
+                
+                chargerHandler.SleepingAnimal.AddComponent<PickupItem>();
                 chargerHandler.Sleep();
             }
             

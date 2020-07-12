@@ -2775,6 +2775,7 @@ GameObject:
   - component: {fileID: 8166230436049080144}
   - component: {fileID: 8166230436049508615}
   - component: {fileID: 8166230436049508616}
+  - component: {fileID: 7410131780091964904}
   m_Layer: 10
   m_Name: SleepingChicken
   m_TagString: Untagged
@@ -2834,6 +2835,19 @@ CapsuleCollider:
   m_Height: 10.02
   m_Direction: 1
   m_Center: {x: 0.03, y: 5.46, z: 0}
+--- !u!65 &7410131780091964904
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166230436049508614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.73, y: 11.08, z: 12.79}
+  m_Center: {x: 0, y: 7.3334975, z: 0}
 --- !u!1 &8166230436049515116
 GameObject:
   m_ObjectHideFlags: 0

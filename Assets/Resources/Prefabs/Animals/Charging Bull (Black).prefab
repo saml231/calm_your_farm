@@ -3529,6 +3529,8 @@ GameObject:
   - component: {fileID: 8667517993766108434}
   - component: {fileID: 8667517993766108433}
   - component: {fileID: 8667517993766108432}
+  - component: {fileID: 1433482648231075271}
+  - component: {fileID: 1903509883441447301}
   m_Layer: 10
   m_Name: SleepingAnimal
   m_TagString: Untagged
@@ -3592,6 +3594,35 @@ CapsuleCollider:
   m_Height: 24.64
   m_Direction: 1
   m_Center: {x: 0, y: 12.69, z: -19.9}
+--- !u!65 &1433482648231075271
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8667517993766108525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.82, y: 14.7, z: 32.5}
+  m_Center: {x: 0, y: 18.68, z: -4.61}
+--- !u!54 &1903509883441447301
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8667517993766108525}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8667517993778263627
 GameObject:
   m_ObjectHideFlags: 0

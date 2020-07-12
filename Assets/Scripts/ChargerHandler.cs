@@ -99,7 +99,7 @@ public class ChargerHandler : MonoBehaviour
         BullCharge() //If the player is within a certain distance of the bull the bull will rapidly charge in a straight line towards the player
     {
         float dist_bull = Vector3.Distance(player.transform.position, transform.position);
-        float dist_dist_bull_threshold = 14;
+        float dist_dist_bull_threshold = 7;
 
         if (dist_bull < dist_dist_bull_threshold)
         {
