@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Tank : MonoBehaviour
@@ -11,16 +12,21 @@ public class Tank : MonoBehaviour
     public GameObject TankLift;
 
     public Transform bulletShootingPos;
+    public Transform SleepingAnimalTransform;
 
-    public ParticleSystem TireFX; 
- 
-    
+    public ParticleSystem TireFX;
+
+    private ArmLift lift;
+
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
+
     public void RotateWheels(float spin)
     {
         foreach (var wheel in TankWheels)
             wheel.transform.Rotate(spin, 0, 0);
     }
-    
+
     public void SetFrontWheelsYPos(float yPos)
     {
         foreach (var wheel in FrontTankWheels)
@@ -29,13 +35,8 @@ public class Tank : MonoBehaviour
 //            wheel.transform.rotation= originalRot * Quaternion.AngleAxis(yPos, Vector3.up);
 //            var r = wheel.transform.rotation.eulerAngles;
 //            wheel.transform.rotation = Quaternion.Euler(r.x, yPos, r.z);
-
-
         }
-
-        
     }
-
 
 
     public float Speed;
@@ -95,6 +96,9 @@ public class Tank : MonoBehaviour
     /// </summary>
     void Start()
     {
+        originalPosition = this.transform.position;
+        originalRotation = this.transform.rotation;
+
         agentRb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
         bulletCount = Bullets;
@@ -104,6 +108,8 @@ public class Tank : MonoBehaviour
             startPosition = transform.position;
             startRotation = transform.rotation;
         }
+
+        lift = FindObjectOfType<ArmLift>();
     }
 
     void Update()
@@ -111,7 +117,7 @@ public class Tank : MonoBehaviour
         var actionsOut = Heuristic();
         OnActionReceived(actionsOut);
         RotateWheels(-1.0f * (actionsOut[0] - 1));
-        SetFrontWheelsYPos(yPos: 45 * (actionsOut[1]-1));
+        SetFrontWheelsYPos(yPos: 45 * (actionsOut[1] - 1));
 
         if (actionsOut[0] != 1 || actionsOut[1] != 1)
         {
@@ -122,11 +128,9 @@ public class Tank : MonoBehaviour
         {
             TireFX.Stop();
             TireFX.enableEmission = false;
-            
         }
 
-        
-
+        FixOrientation();
     }
 
 
@@ -159,9 +163,10 @@ public class Tank : MonoBehaviour
         {
             bulletCount--;
             lastShot = ShootCooldown;
-            
-            
-            var bullet = Instantiate(BulletPrefab, bulletShootingPos);
+
+
+            var bullet = Instantiate(BulletPrefab[Random.Range(0, BulletPrefab.Length)],
+                bulletShootingPos);
             bullet.GetComponent<Bullet>().Owner = this;
             bullet.GetComponent<Rigidbody>().velocity = transform.forward * BulletSpeed;
             if (!didKill)
@@ -219,6 +224,22 @@ public class Tank : MonoBehaviour
         bulletCount = Bullets;
     }
 
+    private void FixOrientation()
+    {
+        Debug.Log("fix orientation");
+        transform.position = new Vector3(
+            transform.position.x,
+            originalPosition.y,
+            transform.position.z
+        );
+
+
+//        Vector3 eulerAngles = transform.rotation.eulerAngles;
+//        eulerAngles = new Vector3(0, eulerAngles.y, 0);
+//        transform.rotation = Quaternion. Euler(eulerAngles);
+//        transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
+    }
+
     public void GiveKill()
     {
         //AddReward(KillReward);
@@ -228,5 +249,16 @@ public class Tank : MonoBehaviour
 
         if (KillText != null)
             KillText.text = killCount.ToString();
+    }
+
+
+    public void RaiseLift()
+    {
+        lift.raise = true;
+    }
+
+    public void LowerLift()
+    {
+        lift.raise = false;
     }
 }
