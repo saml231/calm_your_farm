@@ -17,6 +17,8 @@ void Start(){
 private void OnTriggerEnter(Collider other)
     {
         var t = other.GetComponent<Tank>();
+       
+        
 
         if (t!=null){
 
@@ -27,6 +29,8 @@ private void OnTriggerEnter(Collider other)
             }
 
         }
+
+        
 
         
         

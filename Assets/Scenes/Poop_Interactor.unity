@@ -269,25 +269,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acbaad7269e033d4baae3ece78068d26, type: 3}
---- !u!1 &184597024 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7567942995358881612, guid: e2769065672bc4df381ad5ba3f8ca60a,
-    type: 3}
-  m_PrefabInstance: {fileID: 701248786}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &184597030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184597024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2376449c9840f14fb88e6a90fb6fc7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroy_on_collision: 0
 --- !u!1 &253151233
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +359,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &316081598
 PrefabInstance:
@@ -601,22 +582,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Charging Bull (Brown)
       objectReference: {fileID: 0}
-    - target: {fileID: 7567942995358881612, guid: e2769065672bc4df381ad5ba3f8ca60a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7567942995358881614, guid: e2769065672bc4df381ad5ba3f8ca60a,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1547180217}
-    - target: {fileID: 7567942995358881614, guid: e2769065672bc4df381ad5ba3f8ca60a,
-        type: 3}
-      propertyPath: PoopPrefab
-      value: 
-      objectReference: {fileID: 7731564656006609969, guid: acbaad7269e033d4baae3ece78068d26,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2769065672bc4df381ad5ba3f8ca60a, type: 3}
 --- !u!23 &707587456 stripped
@@ -1099,7 +1069,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1673183976
 GameObject:
@@ -1295,7 +1265,7 @@ Transform:
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1806221414 stripped
 MeshRenderer:
@@ -1309,6 +1279,75 @@ MeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 1547180216}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1957961151
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7567942995358712570, guid: e2769065672bc4df381ad5ba3f8ca60a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.919089
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567942995358712570, guid: e2769065672bc4df381ad5ba3f8ca60a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3675761
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567942995358712570, guid: e2769065672bc4df381ad5ba3f8ca60a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.529152
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567942995358712570, guid: e2769065672bc4df381ad5ba3f8ca60a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567942995358712570, guid: e2769065672bc4df381ad5ba3f8ca60a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567942995358712570, guid: e2769065672bc4df381ad5ba3f8ca60a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567942995358712570, guid: e2769065672bc4df381ad5ba3f8ca60a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567942995358712570, guid: e2769065672bc4df381ad5ba3f8ca60a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567942995358712570, guid: e2769065672bc4df381ad5ba3f8ca60a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567942995358712570, guid: e2769065672bc4df381ad5ba3f8ca60a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567942995358712570, guid: e2769065672bc4df381ad5ba3f8ca60a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567942995358881612, guid: e2769065672bc4df381ad5ba3f8ca60a,
+        type: 3}
+      propertyPath: m_Name
+      value: Charging Bull (Brown) (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e2769065672bc4df381ad5ba3f8ca60a, type: 3}
 --- !u!23 &2018596729 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 3189116756950671084, guid: 84827b62942364897a7e69682afa15b9,
@@ -1401,7 +1440,7 @@ Transform:
   m_LocalScale: {x: 2.6, y: 2.35, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 8.33, y: 0, z: 0.16}
 --- !u!1 &6891490922762017607
 GameObject:
