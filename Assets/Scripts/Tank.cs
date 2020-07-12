@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections; //for flashing ienumerator
 
 public class Tank : MonoBehaviour
 {
@@ -40,7 +41,9 @@ public class Tank : MonoBehaviour
 
     public int KillCount => killCount;
     public int DeathCount => deathCount;
+    // Renderer 
 
+    public MeshRenderer[] myTankRenderers;
     
     void OnDrawGizmosSelected()
     {
@@ -73,6 +76,7 @@ public class Tank : MonoBehaviour
             startPosition = transform.position;
             startRotation = transform.rotation;
         }
+
     }
 
     void Update()
@@ -185,11 +189,32 @@ public class Tank : MonoBehaviour
             KillText.text = killCount.ToString();
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void  takedamage()
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Poop")){
-            Debug.Log(this.gameObject.name + "Hit Poop!");
+        Debug.Log("Collision");
+        
+        Debug.Log(this.gameObject.name + "Hit Poop!");
+        StartCoroutine(Flash());
+           
+            
+        
+
+    }
+
+    IEnumerator Flash() {
+
+    for (int i=0;i!=10;++i) // 10 flashes
+    {
+    foreach (var r in myTankRenderers){
+        r.enabled=false;
         }
+
+    yield return new WaitForSeconds(0.2f);
+
+        foreach (var r in myTankRenderers){
+        r.enabled=true;
+        }
+    }
 
     }
 }

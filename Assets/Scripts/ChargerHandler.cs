@@ -34,6 +34,8 @@ public class ChargerHandler : MonoBehaviour
     public float charge_cooldown_time = 5; // Cooldown time between bull charges
     private BoxCollider boxCollider;
 
+    
+
     UnityEngine.AI.NavMeshAgent nav;
 
     // Start is called before the first frame update
@@ -134,7 +136,7 @@ public class ChargerHandler : MonoBehaviour
         {
             wander();
 
-            print("Distance to other: " + dist_bull);
+            //print("Distance to other: " + dist_bull);
         }
     }
 // https://forum.unity.com/threads/solved-random-wander-ai-using-navmesh.327950/ for wandering code 
