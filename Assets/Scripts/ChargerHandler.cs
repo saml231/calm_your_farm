@@ -22,6 +22,8 @@ public class ChargerHandler : MonoBehaviour
 
     private float timer = 8; //Wandering code
 
+    //private float global_timer = 50.0f; //Wandering code
+
     private float charge_cooldown = 60;
 
     private UnityEngine.AI.NavMeshAgent agent; //Wandering code
@@ -52,6 +54,9 @@ public class ChargerHandler : MonoBehaviour
     {
         timer += Time.deltaTime; //Wandering code
         charge_cooldown += Time.deltaTime;
+        //global_timer-=Time.deltaTime; //Countdown timer
+        //Debug.Log(global_timer);
+        //int seconds = global_timer % 60;
         Move();
     }
 
@@ -92,6 +97,7 @@ public class ChargerHandler : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         timer = wanderTimer;
         charge_cooldown = charge_cooldown_time; //testing
+ 
     }
 
 
