@@ -20,6 +20,8 @@ public class PickupItem : MonoBehaviour
         {
             t.RaiseLift();
             this.transform.parent = t.SleepingAnimalTransform;
+            this.transform.position = t.SleepingAnimalTransform.position;
+            Destroy(this.gameObject.GetComponent<Rigidbody>());
         }
         
         if (other.GetComponent<Goal>() != null)
