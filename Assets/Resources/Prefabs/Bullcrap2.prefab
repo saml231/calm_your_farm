@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2376449c9840f14fb88e6a90fb6fc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroy_on_collision: 1
 --- !u!1 &8552737348421637022
 GameObject:
   m_ObjectHideFlags: 0

@@ -206,14 +206,17 @@ public class Tank : MonoBehaviour
     for (int i=0;i!=10;++i) // 10 flashes
     {
     foreach (var r in myTankRenderers){
-        r.enabled=false;
+        //r.enabled=false;
+        r.material.color = Color.red;
         }
 
-    yield return new WaitForSeconds(0.2f);
+    yield return new WaitForSeconds(0.1f);
 
         foreach (var r in myTankRenderers){
-        r.enabled=true;
+        //r.enabled=true;
+        r.material.color = Color.white; 
         }
+    yield return new WaitForSeconds(0.1f);
     }
 
     }
