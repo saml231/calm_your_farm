@@ -184,4 +184,12 @@ public class Tank : MonoBehaviour
         if (KillText != null)
             KillText.text = killCount.ToString();
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Poop")){
+            Debug.Log(this.gameObject.name + "Hit Poop!");
+        }
+
+    }
 }
