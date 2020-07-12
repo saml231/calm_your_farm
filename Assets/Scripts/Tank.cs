@@ -10,6 +10,11 @@ public class Tank : MonoBehaviour
     public GameObject[] FrontTankWheels;
     public GameObject TankLift;
 
+    public Transform bulletShootingPos;
+
+    public ParticleSystem TireFX; 
+ 
+    
     public void RotateWheels(float spin)
     {
         foreach (var wheel in TankWheels)
@@ -42,7 +47,7 @@ public class Tank : MonoBehaviour
     public float ShootCooldown;
     public float DeadCooldown;
     public int Bullets;
-    public GameObject BulletPrefab;
+    public GameObject[] BulletPrefab;
     public GameObject TankModel;
     public GameObject GhostModel;
 
@@ -108,6 +113,20 @@ public class Tank : MonoBehaviour
         RotateWheels(-1.0f * (actionsOut[0] - 1));
         SetFrontWheelsYPos(yPos: 45 * (actionsOut[1]-1));
 
+        if (actionsOut[0] != 1 || actionsOut[1] != 1)
+        {
+            TireFX.Play();
+            TireFX.enableEmission = true;
+        }
+        else
+        {
+            TireFX.Stop();
+            TireFX.enableEmission = false;
+            
+        }
+
+        
+
     }
 
 
@@ -140,9 +159,9 @@ public class Tank : MonoBehaviour
         {
             bulletCount--;
             lastShot = ShootCooldown;
-            var bullet = Instantiate(BulletPrefab,
-                transform.position + transform.forward * -BulletOffset +
-                transform.up * BulletHeight, transform.rotation, transform.parent);
+            
+            
+            var bullet = Instantiate(BulletPrefab, bulletShootingPos);
             bullet.GetComponent<Bullet>().Owner = this;
             bullet.GetComponent<Rigidbody>().velocity = transform.forward * BulletSpeed;
             if (!didKill)

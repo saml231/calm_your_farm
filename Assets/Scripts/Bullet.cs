@@ -31,6 +31,8 @@ public class Bullet : MonoBehaviour
             {
                 chargerHandler.Sleep();
             }
+            
+            Destroy(this.gameObject);
         }
     }
 }
