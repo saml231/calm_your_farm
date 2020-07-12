@@ -279,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   SleepingAnimal: {fileID: 8667517993766108525}
-  PoopPrefab: {fileID: 945867477576979403, guid: c7dd046e265184fd4951052eb52c0ece,
+  PoopPrefab: {fileID: 7731564656006609969, guid: acbaad7269e033d4baae3ece78068d26,
     type: 3}
   animalType: 1
   wanderRadius: 60
